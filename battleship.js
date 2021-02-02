@@ -1,3 +1,9 @@
+view.displayMiss("00");
+view.displayHit("34");
+view.displayMiss("55");
+view.displayHit("12");
+view.displayMiss("25");
+view.displayHit("26");
 var model = {
 	boardSize: 7,
 	numShips: 3,
@@ -35,16 +41,3 @@ var model = {
 		return true;
 	}
 };
-model.fire("53"); // miss
-
-model.fire("06"); // hit
-model.fire("16"); // hit
-model.fire("26"); // hit
-
-model.fire("34"); // hit
-model.fire("24"); // hit
-model.fire("44"); // hit
-
-model.fire("12"); // hit
-model.fire("11"); // hit
-model.fire("10"); // hit;
