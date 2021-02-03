@@ -202,20 +202,34 @@ controller.processGuess("B1"); // hit
 controller.processGuess("B2"); // hit
 */
 
-function init() {
-	var fireButton = document.getElementById("firebutton");
-	fireButton.onclick = handleFireButton;
+function handleFireButton() {
 	var guessInput = document.getElementById("guessInput");
-	guessInput.onkeypress = handleKeyPress;
+	var guess = guessInput.value.toUpperCase();
 
-	model.generateShipLocations();
+	controller.processGuess(guess);
+
+	guessInput.value = "";
 }
+
 function handleKeyPress(e) {
-	var firebutton = document.getElementById("fireButton");
+	var fireButton = document.getElementById("fireButton");
+	e = e || window.event;
+
 	if (e.keyCode === 13) {
 		fireButton.click();
 		return false;
 	}
 }
 
+window.onload = init;
+
+function init() {
+	var fireButton = document.getElementById("fireButton");
+	fireButton.onclick = handleFireButton;
+
+	var guessInput = document.getElementById("guessInput");
+	guessInput.onkeypress = handleKeyPress;
+
+	model.generateShipLocations();
+}
 
