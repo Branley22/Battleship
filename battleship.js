@@ -35,11 +35,9 @@ var model = {
 	shipLength: 3,
 	shipsSunk: 0,
 	
-	ships: [
-		{ locations: ["06", "16", "26"], hits: ["hit", "", ""] },
-		{ locations: ["24", "34", "44"], hits: ["", "", ""] },
-		{ locations: ["10", "11", "12"], hits: ["", "", ""] }
-	],
+	ships: [ { locations: [0, 0, 0], hits: ["", "", ""] },
+		     { locations: [0, 0, 0], hits: ["", "", ""] },
+		     { locations: [0, 0, 0], hits: ["", "", ""] } ],
 
 	fire: function(guess) {
 		for (var i = 0; i < this.numShips; i++) {
@@ -159,7 +157,6 @@ function parseGuess(guess) {
 	}
 	return null;
 }
-
 /*
 console.log("Testing parseGuess");
 console.log(parseGuess("A0"));
@@ -209,9 +206,10 @@ function init() {
 	var fireButton = document.getElementById("firebutton");
 	fireButton.onclick = handleFireButton;
 	var guessInput = document.getElementById("guessInput");
-    guessInput.onkeypress = handleKeyPress;
-}
+	guessInput.onkeypress = handleKeyPress;
 
+	model.generateShipLocations();
+}
 function handleKeyPress(e) {
 	var firebutton = document.getElementById("fireButton");
 	if (e.keyCode === 13) {
@@ -219,3 +217,5 @@ function handleKeyPress(e) {
 		return false;
 	}
 }
+
+
